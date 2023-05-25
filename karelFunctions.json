@@ -1,6 +1,6430 @@
 [
-    { "name": "move", "parameters": [{"name": "steps", "type": "INTEGER"}] },
-    { "name": "turn", "parameters": [{"name": "direction", "type": "STRING"}] },
-    { "name": "pickup", "parameters": [{"name": "object", "type": "STRING"}] },
-    { "name": "function1", "parameters": [{"name": "parameter1", "type": "STRING"}, {"name": "parameter2", "type": "INTEGER"}] }
+    {
+        "name": "ABORT_TASK",
+        "parameters": [
+            {
+                "name": "task_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "force_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "cancel_mtn_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ABORT_TASK(task_name, force_sw, cancel_mtn_sw, status)"
+    },
+    {
+        "name": "ABS",
+        "parameters": [
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ABS(x)"
+    },
+    {
+        "name": "ACOS",
+        "parameters": [
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "ACOS (x)"
+    },
+    {
+        "name": "ACT_SCREEN",
+        "parameters": [
+            {
+                "name": "screen_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "old_screen_n",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ACT_SCREEN"
+    },
+    {
+        "name": "ACT_TBL",
+        "parameters": [
+            {
+                "name": "action",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "def_item",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "table_data",
+                "parameter_type": "in,out",
+                "data_type": "XWORK_T"
+            },
+            {
+                "name": "term_char",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "attach_wind",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ACT_TBL(action, def_item, table_data, term_char, attach_wind, status)"
+    },
+    {
+        "name": "ADD_BYNAMEPC",
+        "parameters": [
+            {
+                "name": "dat_buffer",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "dat_index",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ADD_BYNAMEPC(dat_buffer, dat_index, prog_name, var_name, status)"
+    },
+    {
+        "name": "ADD_DICT",
+        "parameters": [
+            {
+                "name": "file_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "lang_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "add_option",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ADD_DICT(file_name, dict_name, lang_name, add_option, status)"
+    },
+    {
+        "name": "ADD_INTPC",
+        "parameters": [
+            {
+                "name": "dat_buffer",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "dat_index",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "number",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ADD_INTPC(dat_buffer, dat_index, number, status)"
+    },
+    {
+        "name": "ADD_REALPC",
+        "parameters": [
+            {
+                "name": "dat_buffer",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "dat_index",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "number",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ADD_REALPC(dat_buffer, dat_index, number, status)"
+    },
+    {
+        "name": "ADD_STRINGPC",
+        "parameters": [
+            {
+                "name": "dat_buffer",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "dat_index",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "item",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ADD_STRINGPC(dat_buffer, dat_index, item, status)"
+    },
+    {
+        "name": "APPEND_NODE",
+        "parameters": [
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "APPEND_NODE(path_var, status)"
+    },
+    {
+        "name": "APPEND_QUEUE",
+        "parameters": [
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "queue",
+                "parameter_type": "in,out",
+                "data_type": "QUEUE_TYPE"
+            },
+            {
+                "name": "queue_data",
+                "parameter_type": "in,out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "sequence_no",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "APPEND_QUEUE(value, queue, queue_data, sequence_no, status)"
+    },
+    {
+        "name": "APPROACH",
+        "parameters": [
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            }
+        ],
+        "syntax": "APPROACH(posn)"
+    },
+    {
+        "name": "ARRAY_LEN",
+        "parameters": [],
+        "syntax": "ARRAY_LEN(ary_var)"
+    },
+    {
+        "name": "ASIN",
+        "parameters": [
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "ASIN(x)"
+    },
+    {
+        "name": "ATAN2",
+        "parameters": [
+            {
+                "name": "x1",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "y1",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "ATAN2(x1, y1)"
+    },
+    {
+        "name": "ATT_WINDOW_D",
+        "parameters": [
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "disp_dev_nam",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "screen_name",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ATT_WINDOW_D(window_name, disp_dev_nam, row, col, screen_name, status)"
+    },
+    {
+        "name": "ATT_WINDOW_S",
+        "parameters": [
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "screen_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ATT_WINDOW_S(window_name, screen_name, row, col, status)"
+    },
+    {
+        "name": "AVL_POS_NUM",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "pos_num",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "AVL_POS_NUM(open_id, pos_num, status)"
+    },
+    {
+        "name": "BYNAME",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "entry",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "BYNAME (prog_name, var_name, entry)"
+    },
+    {
+        "name": "BYTES_AHEAD",
+        "parameters": [
+            {
+                "name": "file_id",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "n_bytes",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "BYTES_AHEAD(file_id, n_bytes, status)"
+    },
+    {
+        "name": "BYTES_LEFT",
+        "parameters": [
+            {
+                "name": "file_id",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            }
+        ],
+        "syntax": "BYTES_LEFT(file_id)"
+    },
+    {
+        "name": "CALL_PROG",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "prog_index",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CALL_PROG(prog_name, prog_index)"
+    },
+    {
+        "name": "CALL_PROGLIN",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "prog_line",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "prog_index",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "pause_entry",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            }
+        ],
+        "syntax": "CALL_PROGLIN(prog_name, prog_line, prog_index, pause_entry)"
+    },
+    {
+        "name": "CHECK_DICT",
+        "parameters": [
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "element_no",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CHECK_DICT(dict_name, element_no, status)"
+    },
+    {
+        "name": "CHECK_EPOS",
+        "parameters": [
+            {
+                "name": "eposn",
+                "parameter_type": "in",
+                "data_type": "XYZWPREXT"
+            },
+            {
+                "name": "uframe",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "utool",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CHECK_EPOS (eposn, uframe, utool, status <, group_no>)"
+    },
+    {
+        "name": "CHECK_NAME",
+        "parameters": [
+            {
+                "name": "name_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CHECK_NAME (name_spec, status)"
+    },
+    {
+        "name": "CHR",
+        "parameters": [
+            {
+                "name": "code",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CHR (code)"
+    },
+    {
+        "name": "CLEAR",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CLEAR(file_spec, status)"
+    },
+    {
+        "name": "CLEAR_SEMA",
+        "parameters": [
+            {
+                "name": "semaphore_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CLEAR_SEMA(semaphore_no)"
+    },
+    {
+        "name": "CLOSE_TPE",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CLOSE_TPE(open_id, status)"
+    },
+    {
+        "name": "CLR_IO_STAT",
+        "parameters": [
+            {
+                "name": "file_id",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            }
+        ],
+        "syntax": "CLR_IO_STAT(file_id)"
+    },
+    {
+        "name": "CLR_PORT_SIM",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CLR_PORT_SIM(port_type, port_no, status)"
+    },
+    {
+        "name": "CLR_POS_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CLR_POS_REG(register_no, group_no, status)"
+    },
+    {
+        "name": "CNC_DYN_DISB",
+        "parameters": [],
+        "syntax": "CNC_DYN_DISB (b_var, window_name, status)"
+    },
+    {
+        "name": "CNC_DYN_DISE",
+        "parameters": [
+            {
+                "name": "e_var",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNC_DYN_DISE (e_var, window_name, status)"
+    },
+    {
+        "name": "CNC_DYN_DISI",
+        "parameters": [
+            {
+                "name": "int_var",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNC_DYN_DISI(int_var, window_name, status)"
+    },
+    {
+        "name": "CNC_DYN_DISP",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNC_DYN_DISP(port_type, port_no, window_name, status)"
+    },
+    {
+        "name": "CNC_DYN_DISR",
+        "parameters": [
+            {
+                "name": "real_var",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNC_DYN_DISR(real_var, window_name, status)"
+    },
+    {
+        "name": "CNC_DYN_DISS",
+        "parameters": [
+            {
+                "name": "str_var",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNC_DYN_DISS(str_var, window_name, status)"
+    },
+    {
+        "name": "CNCL_STP_MTN",
+        "parameters": [],
+        "syntax": "CNCL_STP_MTN"
+    },
+    {
+        "name": "CNV_CNF_STRG",
+        "parameters": [
+            {
+                "name": "source",
+                "parameter_type": "in",
+                "data_type": "CONFIG"
+            },
+            {
+                "name": "target",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNV_CNF_STRG(source, target, status <,group_no>)"
+    },
+    {
+        "name": "CNV_CONF_STR",
+        "parameters": [],
+        "syntax": "CNV_CONF_STR(source, target)"
+    },
+    {
+        "name": "CNV_INT_STR",
+        "parameters": [
+            {
+                "name": "source",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "length",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "base",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "target",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "CNV_INT_STR(source, length, base, target)"
+    },
+    {
+        "name": "CNV_JPOS_REL",
+        "parameters": [
+            {
+                "name": "joint_pos",
+                "parameter_type": "in",
+                "data_type": "JOINTPOS"
+            },
+            {
+                "name": "real_array",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNV_JPOS_REL(joint_pos, real_array, status)"
+    },
+    {
+        "name": "CNV_REAL_STR",
+        "parameters": [
+            {
+                "name": "source",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "length",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "num_digits",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "target",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "CNV_REAL_STR(source, length, num_digits, target)"
+    },
+    {
+        "name": "CNV_REL_JPOS",
+        "parameters": [
+            {
+                "name": "real_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "joint_pos",
+                "parameter_type": "out",
+                "data_type": "JOINTPOS"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNV_REL_JPOS(real_array, joint_pos, status)"
+    },
+    {
+        "name": "CNV_STR_CONF",
+        "parameters": [
+            {
+                "name": "source",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "target",
+                "parameter_type": "out",
+                "data_type": "CONFIG"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNV_STR_CONF(source, target, status)"
+    },
+    {
+        "name": "CNV_STR_INT",
+        "parameters": [
+            {
+                "name": "source",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "target",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNV_STR_INT(source, target)"
+    },
+    {
+        "name": "CNV_STR_REAL",
+        "parameters": [
+            {
+                "name": "source",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "target",
+                "parameter_type": "out",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "CNV_STR_REAL(source, target)"
+    },
+    {
+        "name": "CNV_STR_TIME",
+        "parameters": [
+            {
+                "name": "source",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "target",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CNV_STR_TIME(source, target)"
+    },
+    {
+        "name": "CNV_TIME_STR",
+        "parameters": [
+            {
+                "name": "source",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "target",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "CNV_TIME_STR(source, target)"
+    },
+    {
+        "name": "CONT_TASK",
+        "parameters": [
+            {
+                "name": "task_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CONT_TASK(task_name, status)"
+    },
+    {
+        "name": "COPY_FILE",
+        "parameters": [
+            {
+                "name": "from_file",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "to_file",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "overwrite_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "nowait_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "COPY_FILE(from_file, to_file, overwrite_sw, nowait_sw, status)"
+    },
+    {
+        "name": "COPY_PATH",
+        "parameters": [
+            {
+                "name": "source_path",
+                "parameter_type": "in",
+                "data_type": "PATH"
+            },
+            {
+                "name": "start_node",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "end_node",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "dest_path",
+                "parameter_type": "in",
+                "data_type": "PATH"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "COPY_PATH (source_path, start_node, end_node, dest_path, status)"
+    },
+    {
+        "name": "COPY_QUEUE",
+        "parameters": [
+            {
+                "name": "queue_t",
+                "parameter_type": "in",
+                "data_type": "QUEUE_TYPE"
+            },
+            {
+                "name": "queue_data",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "n_skip",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "sequence_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "out_data",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "n_got",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "COPY_QUEUE(queue, queue_data, sequence_no, n_skip, out_data, n_got, status)"
+    },
+    {
+        "name": "COPY_TPE",
+        "parameters": [
+            {
+                "name": "from_prog",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "to_prog",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "overwrite_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "COPY_TPE(from_prog, to_prog, overwrite_sw, status)"
+    },
+    {
+        "name": "COS",
+        "parameters": [
+            {
+                "name": "angle",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "COS(angle)"
+    },
+    {
+        "name": "CREATE_TPE",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "prog_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CREATE_TPE(prog_name, prog_type, status)"
+    },
+    {
+        "name": "CREATE_VAR",
+        "parameters": [],
+        "syntax": "CREATE_VAR(var_prog_nam, var_nam, typ_prog_nam, type_nam, group_num, inner_dim,"
+    },
+    {
+        "name": "CURJPOS",
+        "parameters": [
+            {
+                "name": "axs_lim_mask",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ovr_trv_mask",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "CURJPOS(axs_lim_mask, ovr_trv_mask <,group_no>)"
+    },
+    {
+        "name": "CURPOS",
+        "parameters": [],
+        "syntax": "CURPOS(axis_limit_mask, ovr_trv_mask <,group_no>)"
+    },
+    {
+        "name": "CURR_PROG",
+        "parameters": [],
+        "syntax": "CURR_PROG"
+    },
+    {
+        "name": "DAQ_CHECKP",
+        "parameters": [
+            {
+                "name": "pipe_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "pipe_stat",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "bytes_avail",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DAQ_CHECKP(pipe_num, pipe_stat, bytes_avail)"
+    },
+    {
+        "name": "DAQ_REGPIPE",
+        "parameters": [],
+        "syntax": ""
+    },
+    {
+        "name": "DAQ_START",
+        "parameters": [
+            {
+                "name": "pipe_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "pipe_mode",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "stream_dev",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DAQ_START(pipe_num, pipe_mode, stream_dev, status)"
+    },
+    {
+        "name": "DAQ_STOP",
+        "parameters": [
+            {
+                "name": "pipe_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "force_off",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DAQ_STOP(pipe_num, force_off, status)"
+    },
+    {
+        "name": "DAQ_UNREG",
+        "parameters": [
+            {
+                "name": "pipe_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DAQ_UNREG(pipe_num, status)"
+    },
+    {
+        "name": "DAQ_WRITE",
+        "parameters": [
+            {
+                "name": "pipe_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DAQ_WRITE(pipe_num, prog_name, var_name, status)"
+    },
+    {
+        "name": "DEF_SCREEN",
+        "parameters": [
+            {
+                "name": "screen_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "disp_dev_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DEF_SCREEN(screen_name, disp_dev_name, status)"
+    },
+    {
+        "name": "DEF_WINDOW",
+        "parameters": [
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "n_rows",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "n_cols",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "options",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DEF_WINDOW(window_name, n_rows, n_cols, options, status)"
+    },
+    {
+        "name": "DELETE_FILE",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "nowait_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DELETE_FILE(file_spec, nowait_sw, status)"
+    },
+    {
+        "name": "DELETE_NODE",
+        "parameters": [
+            {
+                "name": "path_var",
+                "parameter_type": "in",
+                "data_type": "PATH"
+            },
+            {
+                "name": "node_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DELETE_NODE(path_var, node_num, status)"
+    },
+    {
+        "name": "DELETE_QUEUE",
+        "parameters": [
+            {
+                "name": "sequence_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "queue_t",
+                "parameter_type": "in,out",
+                "data_type": "QUEUE_TYPE"
+            },
+            {
+                "name": "queue_data",
+                "parameter_type": "in,out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DELETE_QUEUE(sequence_no, queue_t, queue_data, status)"
+    },
+    {
+        "name": "DEL_INST_TPE",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "lin_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DEL_INST_TPE(open_id, lin_num, status)"
+    },
+    {
+        "name": "DET_WINDOW",
+        "parameters": [
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "screen_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DET_WINDOW(window_name, screen_name, status)"
+    },
+    {
+        "name": "DISCTRL_ALPH",
+        "parameters": [
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "str",
+                "parameter_type": "in,out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "dict_ele",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "term_char",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DISCTRL_ALPH(window_name, row, col, str, dict_name, dict_ele, term_char, status)"
+    },
+    {
+        "name": "DISCTRL_FORM",
+        "parameters": [
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "ele_number",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "inactive_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "change_array",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "term_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "def_item",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "term_char",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DISCTRL_FORM(dict_name, ele_number, value_array, inactive_array, change_array,"
+    },
+    {
+        "name": "DISCTRL_LIST",
+        "parameters": [
+            {
+                "name": "display_data",
+                "parameter_type": "in,out",
+                "data_type": "DISP_DAT_T"
+            },
+            {
+                "name": "list_data",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "action",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DISCTRL_LIST(file_var, display_data, list_data, action, status)"
+    },
+    {
+        "name": "DISCTRL_PLMN",
+        "parameters": [
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "element_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ftn_key_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "def_item",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "term_char",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DISCTRL_PLMN(dict_name, element_no, ftn_key_no, def_item, term_char, status)"
+    },
+    {
+        "name": "DISCTRL_SBMN",
+        "parameters": [
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "element_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "def_item",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "term_char",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DISCTRL_SBMN(dict_name, element_no, def_item, term_char, status)"
+    },
+    {
+        "name": "DISCTRL_TBL",
+        "parameters": [
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "ele_number",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "num_rows",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "num_columns",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col_data",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "inact_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "change_array",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "def_item",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "term_char",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "term_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "attach_wind",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DISCTRL_TBL(dict_name, ele_number, num_rows, num_columns, col_data, inact_array,"
+    },
+    {
+        "name": "DISMOUNT_DEV",
+        "parameters": [
+            {
+                "name": "device",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DISMOUNT_DEV (device, status)"
+    },
+    {
+        "name": "DOSFILE_INF",
+        "parameters": [
+            {
+                "name": "device",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "item",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value_str",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "DOSFILE_INF(device, item, value_str, status)"
+    },
+    {
+        "name": "ERR_DATA",
+        "parameters": [
+            {
+                "name": "seq_num",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "error_code",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "error_string",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "cause_code",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "cause_string",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "time_int",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "severity",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "prog_nam",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "ERR_DATA(seq_num, error_code, error_string, cause_code, cause_string, time_int, severity,"
+    },
+    {
+        "name": "EXP",
+        "parameters": [
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "EXP(x)"
+    },
+    {
+        "name": "FILE_LIST",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "n_skip",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "format",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ary_nam",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "n_files",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "FILE_LIST(file_spec, n_skip, format, ary_nam, n_files, status)"
+    },
+    {
+        "name": "FORCE_LINK",
+        "parameters": [
+            {
+                "name": "pane_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "url",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "FORCE_LINK(pane_id, url)"
+    },
+    {
+        "name": "FORCE_SPMENU",
+        "parameters": [
+            {
+                "name": "device_code",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "spmenu_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "screen_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "FORCE_SPMENU(device_code, spmenu_id, screen_no)"
+    },
+    {
+        "name": "FORMAT_DEV",
+        "parameters": [
+            {
+                "name": "device",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "volume_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "nowait_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "FORMAT_DEV(device, volume_name, nowait_sw, status)"
+    },
+    {
+        "name": "FRAME",
+        "parameters": [],
+        "syntax": "FRAME(pos1, pos2, pos3 <,pos4>)"
+    },
+    {
+        "name": "GET_ATTR_PRG",
+        "parameters": [
+            {
+                "name": "program_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "attr_number",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "int_value",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "string_value",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_ATTR_PRG(program_name, attr_number, int_value, string_value, status)"
+    },
+    {
+        "name": "GET_FILE_POS",
+        "parameters": [
+            {
+                "name": "file_id",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            }
+        ],
+        "syntax": "GET_FILE_POS(file_id)"
+    },
+    {
+        "name": "GET_JPOS_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_JPOS_REG(register_no, status <,group_no>)"
+    },
+    {
+        "name": "GET_JPOS_TPE",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "position_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_JPOS_TPE(open_id, position_no, status <, group_no>)"
+    },
+    {
+        "name": "GET_PORT_ATR",
+        "parameters": [
+            {
+                "name": "port_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "atr_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "atr_value",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_PORT_ATR(port_id, atr_type, atr_value)"
+    },
+    {
+        "name": "GET_PORT_CMT",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "comment_str",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_PORT_CMT(port_type, port_no, comment_str, status)"
+    },
+    {
+        "name": "GET_PORT_MOD",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "mode_mask",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_PORT_MOD(port_type, port_no, mode_mask, status)"
+    },
+    {
+        "name": "GET_PORT_SIM",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "simulated",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_PORT_SIM(port_type, port_no, simulated, status)"
+    },
+    {
+        "name": "GET_PORT_VAL",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_PORT_VAL(port_type, port_no, value, status)"
+    },
+    {
+        "name": "GET_POS_FRM",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "position_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "gnum",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ufram_no",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "utool_no",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_POS_FRM(open_id, position_no, gnum, ufram_no, utool_no, status)"
+    },
+    {
+        "name": "GET_POS_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_POS_REG(register_no, status <,group_no>)"
+    },
+    {
+        "name": "GET_POS_TPE",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "position_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_POS_TPE(open_id, position_no, status <, group_no>)"
+    },
+    {
+        "name": "GET_POS_TYP",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "position_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "posn_typ",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "num_axs",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_POS_TYP(open_id, position_no, group_no, posn_typ, num_axs, status)"
+    },
+    {
+        "name": "GET_QUEUE",
+        "parameters": [
+            {
+                "name": "queue_t",
+                "parameter_type": "in,out",
+                "data_type": "QUEUE_TYPE"
+            },
+            {
+                "name": "queue_data",
+                "parameter_type": "in,out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "value",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "sequence_no",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_QUEUE(queue, queue_data, value, status, sequence_no)"
+    },
+    {
+        "name": "GET_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "real_flag",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "int_value",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "real_value",
+                "parameter_type": "out",
+                "data_type": "REAL"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_REG(register_no, real_flag, int_value, real_value, status)"
+    },
+    {
+        "name": "GET_REG_CMT",
+        "parameters": [],
+        "syntax": "GET_REG_CMT (register_no, comment_string, status)"
+    },
+    {
+        "name": "GET_SREG_CMT",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "comment",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_SREG_CMT(register_no, comment, status)"
+    },
+    {
+        "name": "GET_STR_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_STR_REG(register_no, value, status)"
+    },
+    {
+        "name": "GET_TIME",
+        "parameters": [
+            {
+                "name": "i",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_TIME(i)"
+    },
+    {
+        "name": "GET_TSK_INFO",
+        "parameters": [
+            {
+                "name": "task_name",
+                "parameter_type": "in,out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "task_no",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "attribute",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value_int",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value_str",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_TSK_INFO(task_name, task_no, attribute, value_int, value_str, status)"
+    },
+    {
+        "name": "GET_USEC_SUB",
+        "parameters": [],
+        "syntax": "us_delta = GET_USEC_SUB(us2, us1)"
+    },
+    {
+        "name": "GET_USEC_TIM",
+        "parameters": [],
+        "syntax": "us = GET_USEC_TIM"
+    },
+    {
+        "name": "GET_VAR",
+        "parameters": [
+            {
+                "name": "entry",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "value",
+                "parameter_type": "out",
+                "data_type": "Any"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "GET_VAR(entry, prog_name, var_name, value, status)"
+    },
+    {
+        "name": "INDEX",
+        "parameters": [
+            {
+                "name": "main",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "find",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "INDEX(main, find)"
+    },
+    {
+        "name": "INI_DYN_DISB",
+        "parameters": [
+            {
+                "name": "b_var",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "field_width",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "attr_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "char_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "interval",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "strings",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "INI_DYN_DISB (b_var, window_name, field_width, attr_mask, char_size, row, col, interval,"
+    },
+    {
+        "name": "INI_DYN_DISE",
+        "parameters": [
+            {
+                "name": "e_var",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "field_width",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "attr_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "char_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "interval",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "strings",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "INI_DYN_DISE (e_var, window_name, field_width, attr_mask, char_size, row, col, interval,"
+    },
+    {
+        "name": "INI_DYN_DISI",
+        "parameters": [
+            {
+                "name": "i_var",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "field_width",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "attr_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "char_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "interval",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "buffer_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "format",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "INI_DYN_DISI(i_var, window_name, field_width, attr_mask, char_size, row, col, interval,"
+    },
+    {
+        "name": "INI_DYN_DISP",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "field_width",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "attr_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "char_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "interval",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "strings",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            }
+        ],
+        "syntax": "INI_DYN_DISP (port_type, port_no, window_name, field_width, attr_mask, char_size, row,"
+    },
+    {
+        "name": "INI_DYN_DISR",
+        "parameters": [
+            {
+                "name": "r_var",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "field_width",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "char_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "interval",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "INI_DYN_DISR(r_var, window_name, field_width, attr_mask, char_size, row, col, interval,"
+    },
+    {
+        "name": "INI_DYN_DISS",
+        "parameters": [
+            {
+                "name": "s_var",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "window_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "field_width",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "char_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "interval",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "buffer_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "format",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "INI_DYN_DISS(s_var, window_name, field_width, attr_mask, char_size, row, col, interval,"
+    },
+    {
+        "name": "INIT_QUEUE",
+        "parameters": [
+            {
+                "name": "queue_t",
+                "parameter_type": "out",
+                "data_type": "QUEUE_TYPE"
+            }
+        ],
+        "syntax": "INIT_QUEUE(queue_t)"
+    },
+    {
+        "name": "INIT_TBL",
+        "parameters": [
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "ele_number",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "num_rows",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "num_columns",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col_data",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "inact_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "change_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "value_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "vptr_array",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "table_data",
+                "parameter_type": "in,out",
+                "data_type": "XWORK_T"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "INIT_TBL(dict_name, ele_number, num_rows, num_columns, col_data, inact_array,"
+    },
+    {
+        "name": "IN_RANGE",
+        "parameters": [
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "XYZWPREXT"
+            }
+        ],
+        "syntax": "IN_RANGE(posn)"
+    },
+    {
+        "name": "INSERT_NODE",
+        "parameters": [
+            {
+                "name": "path_var",
+                "parameter_type": "in",
+                "data_type": "PATH"
+            },
+            {
+                "name": "node_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "INSERT_NODE(path_var, node_num, status)"
+    },
+    {
+        "name": "INSERT_QUEUE",
+        "parameters": [
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "sequence_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "queue_t",
+                "parameter_type": "in,out",
+                "data_type": "QUEUE_TYPE"
+            },
+            {
+                "name": "queue_data",
+                "parameter_type": "in,out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "INSERT_QUEUE(value, sequence_no, queue_t, queue_data, status)"
+    },
+    {
+        "name": "INV",
+        "parameters": [
+            {
+                "name": "pos",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            }
+        ],
+        "syntax": "INV(pos)"
+    },
+    {
+        "name": "IO_MOD_TYPE",
+        "parameters": [
+            {
+                "name": "rack_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "slot_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "mod_type",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "IO_MOD_TYPE(rack_no, slot_no, mod_type, status)"
+    },
+    {
+        "name": "IO_STATUS",
+        "parameters": [
+            {
+                "name": "file_id",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            }
+        ],
+        "syntax": "IO_STATUS(file_id)"
+    },
+    {
+        "name": "J_IN_RANGE",
+        "parameters": [
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "JOINTPOS"
+            }
+        ],
+        "syntax": "J_IN_RANGE(posn)"
+    },
+    {
+        "name": "JOINT2POS",
+        "parameters": [
+            {
+                "name": "in_jnt",
+                "parameter_type": "in",
+                "data_type": "JOINTPOS"
+            },
+            {
+                "name": "uframe",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "utool",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "config_ref",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "out_pos",
+                "parameter_type": "out",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "wjnt_cfg",
+                "parameter_type": "out",
+                "data_type": "CONFIG"
+            },
+            {
+                "name": "ext_ang",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "JOINT2POS (in_jnt - Joint angles can be converted to Cartesian, uframe, utool, config_ref,"
+    },
+    {
+        "name": "KCL",
+        "parameters": [
+            {
+                "name": "command",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "KCL (command, status)"
+    },
+    {
+        "name": "KCL_NO_WAIT",
+        "parameters": [
+            {
+                "name": "command",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "KCL_NO_WAIT (command, status)"
+    },
+    {
+        "name": "KCL_STATUS",
+        "parameters": [],
+        "syntax": "KCL_STATUS"
+    },
+    {
+        "name": "LN",
+        "parameters": [
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "LN(x)"
+    },
+    {
+        "name": "LOAD",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "option_sw",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "LOAD (file_spec, option_sw, status)"
+    },
+    {
+        "name": "LOAD_STATUS",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "loaded",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "initialized",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            }
+        ],
+        "syntax": "LOAD_STATUS(prog_name, loaded, initialized)"
+    },
+    {
+        "name": "LOCK_GROUP",
+        "parameters": [
+            {
+                "name": "group_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "LOCK_GROUP(group_mask, status)"
+    },
+    {
+        "name": "MIRROR",
+        "parameters": [
+            {
+                "name": "old_pos",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "mirror_frame",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "orient_flag",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            }
+        ],
+        "syntax": "MIRROR (old_pos, mirror_frame, orientation_flag)"
+    },
+    {
+        "name": "MODIFY_QUEUE",
+        "parameters": [
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "sequence_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "queue_t",
+                "parameter_type": "in,out",
+                "data_type": "QUEUE_TYPE"
+            },
+            {
+                "name": "queue_data",
+                "parameter_type": "in,out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "MODIFY_QUEUE(value, sequence_no, queue_t, queue_data, status)"
+    },
+    {
+        "name": "MOTION_CTL",
+        "parameters": [
+            {
+                "name": "group_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "MOTION_CTL<(group_mask)>"
+    },
+    {
+        "name": "MOUNT_DEV",
+        "parameters": [
+            {
+                "name": "device",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "MOUNT_DEV (device, status)"
+    },
+    {
+        "name": "MOVE_FILE",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "MOVE_FILE (file_spec, status)"
+    },
+    {
+        "name": "MSG_CONNECT",
+        "parameters": [
+            {
+                "name": "tag",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "MSG_CONNECT (tag, status)"
+    },
+    {
+        "name": "MSG_DISCO",
+        "parameters": [
+            {
+                "name": "tag",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "MSG_DISCO (tag, status)"
+    },
+    {
+        "name": "MSG_PING",
+        "parameters": [
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "MSG_PING (host name, status)"
+    },
+    {
+        "name": "NODE_SIZE",
+        "parameters": [
+            {
+                "name": "path_var",
+                "parameter_type": "in",
+                "data_type": "PATH"
+            }
+        ],
+        "syntax": "NODE_SIZE(path_var)"
+    },
+    {
+        "name": "OPEN_TPE",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "open_mode",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "reject_mode",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "open_id",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "OPEN_TPE(prog_name, open_mode, reject_mode, open_id, status)"
+    },
+    {
+        "name": "ORD",
+        "parameters": [
+            {
+                "name": "str",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "str_index",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "ORD(str, str_index)"
+    },
+    {
+        "name": "ORIENT",
+        "parameters": [
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            }
+        ],
+        "syntax": "ORIENT(posn)"
+    },
+    {
+        "name": "PATH_LEN",
+        "parameters": [
+            {
+                "name": "path_nam",
+                "parameter_type": "in",
+                "data_type": "PATH"
+            }
+        ],
+        "syntax": "PATH_LEN(path_nam)"
+    },
+    {
+        "name": "PAUSE_TASK",
+        "parameters": [
+            {
+                "name": "task_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "force_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "stop_mtn_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PAUSE_TASK(task_name, force_sw, stop_mtn_sw, status)"
+    },
+    {
+        "name": "PEND_SEMA",
+        "parameters": [
+            {
+                "name": "semaphore_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "max_time",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "time_out",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            }
+        ],
+        "syntax": "PEND_SEMA(semaphore_no, max_time, time_out)"
+    },
+    {
+        "name": "PIPE_CONFIG",
+        "parameters": [
+            {
+                "name": "pipe_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "cmos_flag",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "n_sectors",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "record_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "form_dict",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "form_ele",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PIPE_CONFIG(pipe_name, cmos_flag, n_sectors, record_size, form_dict, form_ele, status)"
+    },
+    {
+        "name": "POP_KEY_RD",
+        "parameters": [
+            {
+                "name": "key_dev_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "pop_index",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "POP_KEY_RD(key_dev_name, pop_index, status)"
+    },
+    {
+        "name": "POS",
+        "parameters": [
+            {
+                "name": "c",
+                "parameter_type": "in",
+                "data_type": "CONFIG"
+            }
+        ],
+        "syntax": "POS(x, y, z, w, p, r, c)"
+    },
+    {
+        "name": "POS2JOINT",
+        "parameters": [
+            {
+                "name": "ref_jnt",
+                "parameter_type": "in",
+                "data_type": "JOINTPOS"
+            },
+            {
+                "name": "in_pos",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "uframe",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "utool",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "config_ref",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "wjnt_cfg",
+                "parameter_type": "in",
+                "data_type": "CONFIG"
+            },
+            {
+                "name": "ext_ang",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "out_jnt",
+                "parameter_type": "out",
+                "data_type": "JOINTPOS"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "POS2JOINT (ref_jnt, in_pos, uframe, utool, config_ref, wjnt_cfg, ext_ang, out_jnt, status)"
+    },
+    {
+        "name": "POS_REG_TYPE",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "posn_type",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "num_axes",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "POS_REG_TYPE (register_no, group_no, posn_type, num_axes, status)"
+    },
+    {
+        "name": "POST_ERR",
+        "parameters": [
+            {
+                "name": "error_code",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "parameter",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "cause_code",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "severity",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "POST_ERR(error_code, parameter, cause_code, severity)"
+    },
+    {
+        "name": "POST_ERR_L",
+        "parameters": [
+            {
+                "name": "error_code",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "parameter",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "cause_code",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "severity",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "POST_ERR_L(error_code, parameter, cause_code, severity)"
+    },
+    {
+        "name": "POST_SEMA",
+        "parameters": [],
+        "syntax": "POST_SEMA(semaphore_no)"
+    },
+    {
+        "name": "PRINT_FILE",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "nowait_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PRINT_FILE(file_spec, nowait_sw, status)"
+    },
+    {
+        "name": "PROG_BACKUP",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "prog_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "max_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "write_prot",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PROG_BACKUP (file_spec, prog_type, max_size, write_prot, status)"
+    },
+    {
+        "name": "PROG_CLEAR",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "prog_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PROG_CLEAR (prog_name, prog_type, status)"
+    },
+    {
+        "name": "PROG_LIST",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "prog_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "n_skip",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "format",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ary_name",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "n_progs",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "f_index",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PROG_LIST(prog_name, prog_type, n_skip, format, ary_name, n_progs <,f_index>)"
+    },
+    {
+        "name": "PROG_RESTORE",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PROG_RESTORE (file_spec, status)"
+    },
+    {
+        "name": "PURGE_DEV",
+        "parameters": [
+            {
+                "name": "device",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PURGE_DEV (device, status)"
+    },
+    {
+        "name": "PUSH_KEY_RD",
+        "parameters": [
+            {
+                "name": "key_dev_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "key_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "pop_index",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "PUSH_KEY_RD(key_dev_name, key_mask, pop_index, status)"
+    },
+    {
+        "name": "READ_DICT",
+        "parameters": [
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "element_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ksta",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "first_line",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "last_line",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "READ_DICT(dict_name, element_no, ksta, first_line, last_line, status)"
+    },
+    {
+        "name": "READ_KB",
+        "parameters": [
+            {
+                "name": "file_var",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "buffer",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "buffer_size",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "accept_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "time_out",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "term_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "init_data",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "n_chars_got",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "READ_KB(file_var, buffer, buffer_size, accept_mask, term_mask, time_out, init_data,"
+    },
+    {
+        "name": "REMOVE_DICT",
+        "parameters": [
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "lang_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "REMOVE_DICT(dict_name, lang_name, status)"
+    },
+    {
+        "name": "RENAME_FILE",
+        "parameters": [
+            {
+                "name": "old_file",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "new_file",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "nowait_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "RENAME_FILE(old_file, new_file, nowait_sw, status)"
+    },
+    {
+        "name": "RENAME_VAR",
+        "parameters": [
+            {
+                "name": "prog_nam",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "old_nam",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "new_nam",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "RENAME_VAR(prog_nam, old_nam, new_nam, status)"
+    },
+    {
+        "name": "RENAME_VARS",
+        "parameters": [
+            {
+                "name": "old_nam",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "new_nam",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "RENAME_VARS(old_nam, new_nam, status)"
+    },
+    {
+        "name": "RESET",
+        "parameters": [
+            {
+                "name": "successful",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            }
+        ],
+        "syntax": "RESET(successful)"
+    },
+    {
+        "name": "ROUND",
+        "parameters": [
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "ROUND(x)"
+    },
+    {
+        "name": "RUN_TASK",
+        "parameters": [
+            {
+                "name": "task_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "line_number",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "pause_on_sft",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "tp_motion",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "lock_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "RUN_TASK (task_name, line_number, pause_on_sft, tp_motion, lock_mask, status)"
+    },
+    {
+        "name": "SAVE",
+        "parameters": [
+            {
+                "name": "prog_nam",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SAVE (prog_nam, file_spec, status)"
+    },
+    {
+        "name": "SAVE_DRAM",
+        "parameters": [
+            {
+                "name": "prog_nam",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SAVE_DRAM (prog_nam, status)"
+    },
+    {
+        "name": "SELECT_TPE",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SELECT_TPE(prog_name, status)"
+    },
+    {
+        "name": "SEMA_COUNT",
+        "parameters": [
+            {
+                "name": "semaphore_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SEMA_COUNT (semaphore_no)"
+    },
+    {
+        "name": "SEND_DATAPC",
+        "parameters": [
+            {
+                "name": "event_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "dat_buffer",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SEND_DATAPC(event_no, dat_buffer, status)"
+    },
+    {
+        "name": "SEND_EVENTPC",
+        "parameters": [
+            {
+                "name": "event_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SEND_EVENTPC(event_no, status)"
+    },
+    {
+        "name": "SET_ATTR_PRG",
+        "parameters": [
+            {
+                "name": "program_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "attr_number",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "int_value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "string_value",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_ATTR_PRG(program_name, attr_number, int_value, string_value, status)"
+    },
+    {
+        "name": "SET_CURSOR",
+        "parameters": [
+            {
+                "name": "file_var",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "row",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "col",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_CURSOR(file_var, row, col, status)"
+    },
+    {
+        "name": "SET_EPOS_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "XYZWPREXT"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_EPOS_REG(register_no, posn, status <, group_no>)"
+    },
+    {
+        "name": "SET_EPOS_TPE",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "position_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "XYZWPREXT"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_EPOS_TPE (open_id, position_no, posn, status <,group_no>)"
+    },
+    {
+        "name": "SET_FILE_ATR",
+        "parameters": [
+            {
+                "name": "file_id",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "atr_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "atr_value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "xml_file",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "ATR_XML",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_FILE_ATR(xml_file, ATR_XML)"
+    },
+    {
+        "name": "SET_FILE_POS",
+        "parameters": [
+            {
+                "name": "file_id",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "new_file_pos",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_FILE_POS(file_id, new_file_pos, status)"
+    },
+    {
+        "name": "SET_INT_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "int_value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_INT_REG(register_no, int_value, status)"
+    },
+    {
+        "name": "SET_JPOS_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "jpos",
+                "parameter_type": "in",
+                "data_type": "JOINTPOS"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_JPOS_REG(register_no, jpos, status<, group_no>)"
+    },
+    {
+        "name": "SET_JPOS_TPE",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "position_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "JOINTPOS"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_JPOS_TPE(open_id, position_no, posn, status<, group_no>)"
+    },
+    {
+        "name": "SET_LANG",
+        "parameters": [
+            {
+                "name": "lang_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_LANG(lang_name, status)"
+    },
+    {
+        "name": "SET_PERCH",
+        "parameters": [
+            {
+                "name": "jpos",
+                "parameter_type": "in",
+                "data_type": "JOINTPOS"
+            },
+            {
+                "name": "tolerance",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "indx",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_PERCH(jpos, tolerance, indx)"
+    },
+    {
+        "name": "SET_PORT_ASG",
+        "parameters": [
+            {
+                "name": "log_port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "log_port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "rack_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "slot_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "phy_port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "phy_port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "n_ports",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_PORT_ASG(log_port_type, log_port_no, rack_no, slot_no, phy_port_type, phy_port_no,"
+    },
+    {
+        "name": "SET_PORT_ATR",
+        "parameters": [
+            {
+                "name": "port_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "atr_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "atr_value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_PORT_ATR(port_id, atr_type, atr_value)"
+    },
+    {
+        "name": "SET_PORT_CMT",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "comment_str",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_PORT_CMT(port_type, port_no, comment_str, status)"
+    },
+    {
+        "name": "SET_PORT_MOD",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "mode_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_PORT_MOD(port_type, port_no, mode_mask, status)"
+    },
+    {
+        "name": "SET_PORT_SIM",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_PORT_SIM(port_type, port_no, value, status)"
+    },
+    {
+        "name": "SET_PORT_VAL",
+        "parameters": [
+            {
+                "name": "port_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "port_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_PORT_VAL(port_type, port_no, value, status)"
+    },
+    {
+        "name": "SET_POS_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "XYZWPR"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_POS_REG(register_no, posn, status<, group_no>)"
+    },
+    {
+        "name": "SET_POS_TPE",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "position_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "XYZWPR"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "group_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_POS_TPE(open_id, position_no, posn, status<, group_no>)"
+    },
+    {
+        "name": "SET_REAL_REG",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "real_value",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_REAL_REG(register_no, real_value, status)"
+    },
+    {
+        "name": "SET_TIME",
+        "parameters": [
+            {
+                "name": "i",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_TIME(i)"
+    },
+    {
+        "name": "SET_TPE_CMT",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "pos_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "comment",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_TPE_CMT(open_id, pos_no, comment, status)"
+    },
+    {
+        "name": "SET_TRNS_TPE",
+        "parameters": [
+            {
+                "name": "open_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "position_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "POSITION"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_TRNS_TPE(open_id, position_no, posn, status)"
+    },
+    {
+        "name": "SET_TSK_ATTR",
+        "parameters": [
+            {
+                "name": "task_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "attribute",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_TSK_ATTR(task_name, attribute, value, status)"
+    },
+    {
+        "name": "SET_TSK_NAME",
+        "parameters": [
+            {
+                "name": "old_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "new_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_TSK_NAME(old_name, new_name, status)"
+    },
+    {
+        "name": "SET_VAR",
+        "parameters": [
+            {
+                "name": "entry",
+                "parameter_type": "in,out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "Any"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SET_VAR(entry, prog_name, var_name, value, status)"
+    },
+    {
+        "name": "SIN",
+        "parameters": [
+            {
+                "name": "angle",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "SIN(angle)"
+    },
+    {
+        "name": "SQRT",
+        "parameters": [
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "SQRT(x)"
+    },
+    {
+        "name": "STR_LEN",
+        "parameters": [
+            {
+                "name": "str",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "STR_LEN(str)"
+    },
+    {
+        "name": "SUB_STR",
+        "parameters": [
+            {
+                "name": "src",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "strt",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "len",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "SUB_STR(src, strt, len)"
+    },
+    {
+        "name": "TAN",
+        "parameters": [
+            {
+                "name": "angle",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "TAN(angle)"
+    },
+    {
+        "name": "TRANSLATE",
+        "parameters": [
+            {
+                "name": "file_spec",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "listing_sw",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "TRANSLATE(file_spec, listing_sw, status)"
+    },
+    {
+        "name": "TRUNC",
+        "parameters": [
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            }
+        ],
+        "syntax": "TRUNC(x)"
+    },
+    {
+        "name": "UNINIT",
+        "parameters": [
+            {
+                "name": "variable",
+                "parameter_type": "in",
+                "data_type": "any"
+            }
+        ],
+        "syntax": "UNINIT(variable)"
+    },
+    {
+        "name": "UNLOCK_GROUP",
+        "parameters": [
+            {
+                "name": "group_mask",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "UNLOCK_GROUP(group_mask, status)"
+    },
+    {
+        "name": "UNPOS",
+        "parameters": [
+            {
+                "name": "posn",
+                "parameter_type": "in",
+                "data_type": "XYZWPR"
+            },
+            {
+                "name": "c",
+                "parameter_type": "out",
+                "data_type": "CONFIG"
+            }
+        ],
+        "syntax": "UNPOS(posn, x, y, z, w, p, r, c)"
+    },
+    {
+        "name": "V_ACQ_VAMAP iRVision",
+        "parameters": [
+            {
+                "name": "sensor_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "partial",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "center_pos",
+                "parameter_type": "in",
+                "data_type": "VECTOR"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_ACQ_VAMAP(sensor_name, partial, center_pos, status)"
+    },
+    {
+        "name": "V_ADJ_2D iRVision",
+        "parameters": [
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "x",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "y",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_ADJ_2D(register_no, x, y, status)"
+    },
+    {
+        "name": "V_CAM_CALIB iRVision",
+        "parameters": [
+            {
+                "name": "cal_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "func_code",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CAM_CALIB (cal_name, func_code, status)"
+    },
+    {
+        "name": "V_CAM_CHECK iRVision",
+        "parameters": [
+            {
+                "name": "camdata_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "power_on",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CAM_CHECK(camdata_name, power_on, status)"
+    },
+    {
+        "name": "V_CLR_VAMAP iRVision",
+        "parameters": [
+            {
+                "name": "sensor_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CLR_VAMAP(sensor_name, status)"
+    },
+    {
+        "name": "V_CSAPI_GETVALUE iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "vo_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "value",
+                "parameter_type": "out",
+                "data_type": "REAL"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CSAPI_GETVALUE(vp_name, vo_name, value, status)"
+    },
+    {
+        "name": "V_CSAPI_NUMSET iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "num_values",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CSAPI_ NUMSET(vp_name, num_values, status)"
+    },
+    {
+        "name": "V_CSAPI_RESETDATA iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CSAPI_RESETDATA(vp_name, status)"
+    },
+    {
+        "name": "V_CSAPI_SAVEDATA iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CSAPI_SAVEDATA(vp_name, status)"
+    },
+    {
+        "name": "V_CSAPI_SETVALUE iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "vo_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CSAPI_SETVALUE(vp_name, vo_name, value, status)"
+    },
+    {
+        "name": "V_CSAPI_TESTRUN iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "camera_view",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_CSAPI_TESTRUN(vp_name, camera_view, status)"
+    },
+    {
+        "name": "V_DISPLAY4D iRVision",
+        "parameters": [
+            {
+                "name": "vistool_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_DISPLAY4D(vistool_name, status)"
+    },
+    {
+        "name": "V_FIND_VIEW iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "camera_view",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "image_reg",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_FIND_VIEW(vp_name, camera_view, image_reg, status)"
+    },
+    {
+        "name": "V_FIND_VLINE iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "view_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "imreg_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "vlines",
+                "parameter_type": "out",
+                "data_type": "PATH"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_FIND_VLINE(vp_name, view_num, imreg_num, vlines, status)"
+    },
+    {
+        "name": "V_GET_FOUND iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "frm_num",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "enc_count",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "offset",
+                "parameter_type": "out",
+                "data_type": "XYZWPR"
+            },
+            {
+                "name": "found_pos",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "meas_val",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_GET_FOUND(vp_name, frm_num, model_id, enc_count, offset, found_pos, meas_val, status)"
+    },
+    {
+        "name": "V_GET_OFFSET iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_GET_OFFSET(vp_name, register_no, status)"
+    },
+    {
+        "name": "V_GET_PASSFL iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "register_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_GET_PASSFL (vp_name, register_no, status)"
+    },
+    {
+        "name": "V_GET_READ iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "sr_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "filename",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "str_len",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_GET_READ(vp_name, sr_num, filename, str_len, status)"
+    },
+    {
+        "name": "V_GET_VPARAM iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "param_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "camera_view",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "reg_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_GET_VPARAM(vp_name, param_no, camera_view, reg_no, status)"
+    },
+    {
+        "name": "V_IRCONNECT iRVision",
+        "parameters": [
+            {
+                "name": "desc_string",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "priority",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "vis_reg_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_IRCONNECT(desc_string, priority, vis_reg_no, status)"
+    },
+    {
+        "name": "V_LED_OFF iRVision",
+        "parameters": [
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_LED_OFF(status)"
+    },
+    {
+        "name": "V_LED_ON iRVision",
+        "parameters": [
+            {
+                "name": "channel",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "intensity",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_LED_ON(channel, intensity, status)"
+    },
+    {
+        "name": "V_OVERRIDE iRVision",
+        "parameters": [
+            {
+                "name": "ovrd_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "value",
+                "parameter_type": "in",
+                "data_type": "REAL"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_OVERRIDE(ovrd_name, value, status)"
+    },
+    {
+        "name": "V_RUN_FIND iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "camera_view",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_RUN_FIND(vp_name, camera_view, status)"
+    },
+    {
+        "name": "V_SAVE_IMREG iRVision",
+        "parameters": [
+            {
+                "name": "image_reg",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "output_path",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ipc_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "image_reg",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "output_path",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_SAVE_IMREG(ipc_name, image_reg, value, status, not_zip)"
+    },
+    {
+        "name": "V_SET_REF iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_SET_REF(vp_name, status)"
+    },
+    {
+        "name": "V_SNAP_VIEW iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "camera_view",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "image_reg",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "V_SNAP_VIEW(vp_name, camera_view, image_reg, status)"
+    },
+    {
+        "name": "VAR_INFO",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "uninit_b",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "type_nam",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "dims",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "type_value",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "slen",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VAR_INFO(prog_name, var_name, uninit, type_nam, type_value, dims, slen, status)"
+    },
+    {
+        "name": "VAR_LIST",
+        "parameters": [
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_type",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "n_skip",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "format",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ary_nam",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "n_vars",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VAR_LIST(prog_name, var_name, var_type, n_skip, format, ary_nam, n_vars, status)"
+    },
+    {
+        "name": "VOL_SPACE",
+        "parameters": [
+            {
+                "name": "device",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "total",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "free",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "volume",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "VOL_SPACE(device, total, free, volume)"
+    },
+    {
+        "name": "VT_ACK_QUEUE iRVision",
+        "parameters": [
+            {
+                "name": "area_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "vreg_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "ack",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_ACK_QUEUE(area_num, vreg_num, ack, status)"
+    },
+    {
+        "name": "VT_CLR_QUEUE iRVision",
+        "parameters": [
+            {
+                "name": "area_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_CLR_QUEUE(area_num, status)"
+    },
+    {
+        "name": "VT_DELETE_PQ iRVision",
+        "parameters": [
+            {
+                "name": "area_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "work_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_DELETE_PQ (area_num, work_id, status)"
+    },
+    {
+        "name": "VT_GET_AREID iRVision",
+        "parameters": [
+            {
+                "name": "area_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "VT_GET_AREID(area_name)"
+    },
+    {
+        "name": "VT_GET_FOUND iRVision",
+        "parameters": [
+            {
+                "name": "vp_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "enc_count",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "offset",
+                "parameter_type": "out",
+                "data_type": "XYZWPR"
+            },
+            {
+                "name": "found_pos",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "meas_val",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_GET_FOUND(vp_name, model_id, enc_count, offset, found_pos, meas_val, status)"
+    },
+    {
+        "name": "VT_GET_LINID iRVision",
+        "parameters": [
+            {
+                "name": "line_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "VT_GET_LINID(line_name)"
+    },
+    {
+        "name": "VT_GET_PFRT iRVision",
+        "parameters": [
+            {
+                "name": "area_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "consecutive",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "num_consct",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "pfrt",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_GET_PFRT(area_num, consecutive, num_consct, model_id, pfrt, status)"
+    },
+    {
+        "name": "VT_GET_QUEUE iRVision",
+        "parameters": [
+            {
+                "name": "area_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "vreg_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "timeout",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "consecutive",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "work_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_GET_QUEUE(area_num, vreg_num, timeout, consecutive, model_id, work_id, status)"
+    },
+    {
+        "name": "VT_GET_TIME iRVision",
+        "parameters": [
+            {
+                "name": "area_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "consecutive",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "work_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "time",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_GET_TIME(area_num, consecutive, model_id, work_id, time, status)"
+    },
+    {
+        "name": "VT_GET_TRYID iRVision",
+        "parameters": [
+            {
+                "name": "tray_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "VT_GET_TRYID(tray_name)"
+    },
+    {
+        "name": "VT_PUT_QUE2 iRVision",
+        "parameters": [
+            {
+                "name": "line_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "work_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "tray_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "found_pos",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "meas_val",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "duplicated",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            }
+        ],
+        "syntax": "VT_PUT_QUE2(line_num, work_id, tray_num, enc_count, model_id, offset, found_pos,"
+    },
+    {
+        "name": "VT_PUT_QUEUE iRVision",
+        "parameters": [
+            {
+                "name": "line_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "work_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "tray_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "enc_count",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "offset",
+                "parameter_type": "in",
+                "data_type": "XYZWPR"
+            },
+            {
+                "name": "found_pos",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "meas_val",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_PUT_QUEUE(line_num, work_id, tray_num, enc_count, model_id, offset, found_pos,"
+    },
+    {
+        "name": "VT_READ_PQ iRVision",
+        "parameters": [
+            {
+                "name": "area_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "vtpartq",
+                "parameter_type": "out",
+                "data_type": "PATH"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_READ_PQ(area_num, vtpartq, status)"
+    },
+    {
+        "name": "VT_SET_FLAG iRVision",
+        "parameters": [
+            {
+                "name": "line_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "line_bit2enb",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "line_bit2dab",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "area_bit2enb",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "area_bit2dab",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_SET_FLAG (line_num, line_bit2enb, line_bit2dab, area_bit2enb, area_bit2dab, status)"
+    },
+    {
+        "name": "VT_SET_LDBAL iRVision",
+        "parameters": [
+            {
+                "name": "line_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "n2pick",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "n2pass",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_SET_LDBAL (line_num, model_id, n2pick, n2pass, status)"
+    },
+    {
+        "name": "VT_WRITE_PQ iRVision",
+        "parameters": [
+            {
+                "name": "area_num",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "work_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "model_id",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "enc_count",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "offset",
+                "parameter_type": "in",
+                "data_type": "XYZWPR"
+            },
+            {
+                "name": "found_pos",
+                "parameter_type": "in",
+                "data_type": "XYZWPR"
+            },
+            {
+                "name": "meas_value",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "VT_WRITE_PQ(area_num, work_id, model_id, enc_count, offset, found_pos, meas_value,"
+    },
+    {
+        "name": "WRITE_DICT",
+        "parameters": [
+            {
+                "name": "file_var",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "element_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "WRITE_DICT(file_var, dict_name, element_no, status)"
+    },
+    {
+        "name": "WRITE_DICT_V",
+        "parameters": [
+            {
+                "name": "file_var",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "dict_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "element_no",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "value_array",
+                "parameter_type": "in",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "WRITE_DICT_V(file_var, dict_name, element_no, value_array, status)"
+    },
+    {
+        "name": "XML_ADDTAG",
+        "parameters": [
+            {
+                "name": "xml_file",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "tag_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "caseflag",
+                "parameter_type": "in",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "tag_ident",
+                "parameter_type": "in",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "XML_ADDTAG(xml_file, tag_name, numchar, caseflag, tag_ident, status)"
+    },
+    {
+        "name": "XML_GETDATA",
+        "parameters": [
+            {
+                "name": "xml_file",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "numattr",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "attrnames",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "attrvalues",
+                "parameter_type": "out",
+                "data_type": "ARRAY"
+            },
+            {
+                "name": "textdata",
+                "parameter_type": "out",
+                "data_type": "STRING"
+            },
+            {
+                "name": "textdone",
+                "parameter_type": "out",
+                "data_type": "BOOLEAN"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "XML_GETDATA(xml_file, numattr, attrnames, attrvalues, text, textdone)"
+    },
+    {
+        "name": "XML_REMTAG",
+        "parameters": [
+            {
+                "name": "xml_file",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "tag_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            }
+        ],
+        "syntax": "XML_REMTAG(xml_file, tag_name, tag_ident, status)"
+    },
+    {
+        "name": "XML_SCAN",
+        "parameters": [
+            {
+                "name": "xml_file",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "tag_ident",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "func_code",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "XML_SCAN(xml_file, tag_name, func_code, status)"
+    },
+    {
+        "name": "XML_SETVAR",
+        "parameters": [
+            {
+                "name": "xml_file",
+                "parameter_type": "in",
+                "data_type": "FILE"
+            },
+            {
+                "name": "prog_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "var_name",
+                "parameter_type": "in",
+                "data_type": "STRING"
+            },
+            {
+                "name": "status",
+                "parameter_type": "out",
+                "data_type": "INTEGER"
+            }
+        ],
+        "syntax": "XML_SETVAR(xml_file, prog_name, var_name, status)"
+    }
 ]

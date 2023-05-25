@@ -23,7 +23,7 @@ function activate(context) {
                     const snippet = new vscode.SnippetString();
                     snippet.appendText(`${func.name}(`);
                     func.parameters.forEach((parameter, index) => {
-                        detailParts.push(`${parameter.name}: ${parameter.type}`);
+                        detailParts.push(`${parameter.name}: ${parameter.data_type}`);
                         snippet.appendPlaceholder(parameter.name);
                         if (index !== func.parameters.length - 1) {
                             snippet.appendText(', ');
