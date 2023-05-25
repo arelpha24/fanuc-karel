@@ -1,0 +1,12 @@
+[
+    {
+        "structure":"PROGRAM",
+        "name": "program_name",
+        "completion": "\n\nBEGIN\n\nEND"
+    },
+    {
+        "structure":"ROUTINE",
+        "name": "routine_name",
+        "completion": "\n\nBEGIN\n\nEND"
+    }
+]

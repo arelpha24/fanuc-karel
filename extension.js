@@ -9,6 +9,7 @@ function activate(context) {
     // Read the JSON files
     const functionsWithParameters = JSON.parse(fs.readFileSync(path.join(__dirname, 'karelFunctions.json'), 'utf-8'));
     const patterns = JSON.parse(fs.readFileSync(path.join(__dirname, 'karelPatterns.json'), 'utf-8'));
+    const structures = JSON.parse(fs.readFileSync(path.join(__dirname, 'karelStructures.json'), 'utf-8'));
 
     context.subscriptions.push(
         vscode.languages.registerCompletionItemProvider('karel', {
@@ -42,7 +43,19 @@ function activate(context) {
                     return item;
                 });
 
-                return functionCompletionItems.concat(patternCompletionItems);
+                // Autocomplete for PROGRAM and ROUTINE structures
+                const structureCompletionItems = structures.map(structure => {
+                    const item = new vscode.CompletionItem(structure.structure, vscode.CompletionItemKind.Struct);
+                    const snippet = new vscode.SnippetString()
+                        .appendText(structure.structure + ' ')
+                        .appendPlaceholder(structure.name)
+                        .appendText(structure.completion + ' ')
+                        .appendPlaceholder(structure.name);
+                    item.insertText = snippet;
+                    return item;
+                });
+
+                return functionCompletionItems.concat(patternCompletionItems, structureCompletionItems);
             }
         }, '.')); // Trigger completion when '.' is pressed
 }
