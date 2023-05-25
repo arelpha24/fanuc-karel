@@ -1,0 +1,466 @@
+1.1.6 Program Structure
+A KAREL program is composed of declaration and executable sections made up of KAREL language
+statements, as shown in Figure 1.1.6.
+
+PROGRAM prog_name
+    Translator Directives
+    CONST, TYPE, and/or VAR Declarations 
+    ROUTINE Declarations
+BEGIN
+Executable Statements
+END prog_name
+ROUTINE Declarations
+Figure 1.1.6 Structure of a Program
+
+In Figure 1.1.6, the words shown in uppercase letters are KAREL reserved words, which have dedicated
+meanings. PROGRAM, CONST, TYPE, VAR, and ROUTINE indicate declaration sections of the
+program. BEGIN and END mark the executable section. Reserved words are described in Section 2.1.3, 
+Reserved Words .
+The PROGRAM statement, which identifies the program, must be the first statement in any KAREL
+program. The PROGRAM statement consists of the reserved word PROGRAM and an identifier of your
+choice (prog_name in Figure 1.1.6). Identifiers are described in Section 2.1.4, User-Defined
+Identifiers .
+
+NOTE
+Your program must reside in a file. The file can, but does not have to, have the same
+name as the program. This distinction is important because you invoke the translator and
+load programs with the name of the file containing your program, but you initiate
+execution of the program and clear the program with the program name.
+For example, if a program named mover was contained in a file named transfer, you
+would reference the file by transfer to translate it, but would use the program name
+mover to execute the program. If both the program and the file were named mover, you
+could use mover to translate the file and also to execute the program.
+A task created to execute the program and the task name is the name of the program
+you initiate. The program can call a routine in another program, but the task name does
+not change.
+The identifier used to name the program cannot be used in the program for any other purpose, such as to
+identify a variable or constant.
+The CONST (constant), TYPE (type), and VAR (variable) declaration sections come after the PROGRAM
+statement. A program can contain any number of CONST, TYPE, and VAR sections. Each section can
+also contain any number of individual declaration statements. Also, multiple CONST, TYPE, and VAR
+sections can appear in any order. The number of CONST, TYPE, and VAR sections, and declaration
+statements are limited only by the amount of memory available.
+ROUTINE declarations can follow the CONST, TYPE, and VAR sections. Each routine begins with the
+reserved word ROUTINE and is similar in syntax to a program. ROUTINE declarations can also follow
+the executable section of the main program after the END statement.
+The executable section must be marked by BEGIN at the beginning and END, followed by the program
+identifier (prog_name in Figure 1.1.6), at the end. The same program identifier must be used in the END
+statement as in the PROGRAM statement. The executable section can contain any number of executable
+statements, limited only by the amount of memory available.
+
+2.1.2 Operators
+KAREL provides operators for standard arithmetic operations, relational operations, and Boolean
+(logical) operations. KAREL also includes special operators that can be used with positional and
+VECTOR data types as operands.
+Table 2.1.2 (a) lists all of the operators available for use with KAREL.
+Table 2.1.2 (a) KAREL Operators
+Arithmetic + - * / DIV MOD
+Relational < < = = < > > = >
+Boolean AND OR NOT
+Special > = < : # @
+The precedence rules for these operators are as follows:
+● Expressions within parentheses are evaluated first.
+● Within a given level of parentheses, operations are performed starting with those of highest
+precedence and proceeding to those of lowest precedence.
+● Within the same level of parentheses and operator precedence, operations are performed from left to
+right.
+Table 2.1.2 (b) lists the precedence levels for the KAREL operators.
+Table 2.1.2 (b) KAREL Operator Precedence
+OPERATOR PRECEDENCE LEVEL
+NOT High
+:, @, # ↓
+*, /, AND, DIV, MOD ↓
+Unary + and -, OR, +, - ↓
+<, >, =, < >, < =, > =, > = < Low
+See Also: Chapter 3, USE OF OPERATORS , for descriptions of functions operators perform
+
+2.1.3 Reserved Words
+Reserved words have a dedicated meaning in KAREL. They can be used only in their prescribed contexts.
+All KAREL reserved words are listed in Table 2.1.3.
+Table 2.1.3 Reserved Word List
+ABORT CONST GET_VAR NOPAUSE STOP
+ABOUT CONTINUE GO NOT STRING
+ABS COORDINATED GOTO NOWAIT STRUCTURE
+AFTER CR GROUP OF THEN
+ALONG DELAY GROUP_ASSOC OPEN TIME
+ALSO DISABLE HAND OR TIMER
+AND DISCONNECT HOLD PATH TO
+ARRAY DIV IF PATHHEADER TPENABLE
+ARRAY_LEN DO IN PAUSE TYPE
+AT DOWNTO INDEPENDENT POSITION UNHOLD
+ATTACH DRAM INTEGER POWERUP UNINIT
+AWAY ELSE JOINTPOS PROGRAM UNPAUSE
+AXIS ENABLE JOINTPOS1 PULSE UNTIL
+BEFORE END JOINTPOS2 PURGE USING
+BEGIN ENDCONDITION JOINTPOS3 READ VAR
+BOOLEAN ENDFOR JOINTPOS4 REAL VECTOR
+BY ENDIF JOINTPOS5 RELATIVE VIA
+BYNAME ENDMOVE JOINTPOS6 RELAX VIS_PROCESS
+BYTE ENDSELECT JOINTPOS7 RELEASE WAIT
+CAM_SETUP ENDSTRUCTURE JOINTPOS8 REPEAT WHEN
+CANCEL ENDUSING JOINTPOS9 RESTORE WHILE
+CASE ENDWHILE MOD RESUME WITH
+CLOSE ERROR MODEL RETURN WRITE
+CMOS EVAL MOVE ROUTINE XYZWPR
+COMMAND EVENT NEAR SELECT XYZWPREXT
+COMMON_ASSOC END NOABORT SEMAPHORE
+CONDITION FILE NODE SET_VAR
+CONFIG FOR NODEDATA SHORT
+CONNECT FROM NOMESSAGE SIGNAL
+
+2.1.4 User-Defined Identifiers
+User-defined identifiers represent constants, data types, statement labels, variables, routine names, and
+program names. Identifiers
+● Start with a letter
+● Can include letters, digits, and underscores
+● Can have a maximum of 12 characters (R-30iB and earlier)
+● Can have a maximum of 36 characters (R-30iB Plus)
+● Can have only one meaning within a particular scope. Refer to Section 5.1.4, Scope of Variables .
+● Cannot be reserved words
+● Must be defined before they can be used.
+For example, the program excerpt in Figure 2.1.4 shows how to declare program, variable, and constant
+identifiers.
+PROGRAM mover --program identifier (mover)
+    VAR
+        original : POSITION --variable identifier (original)
+    CONST
+        no_of_parts = 10 --constant identifier (no_of_parts)
+Figure 2.1.4 Declaring Identifiers
+
+2.1.5 Labels
+Labels are special identifiers that mark places in the program to which program control can be transferred
+using the GO TO statement.
+● Are immediately followed by two colons (::). Executable statements are permitted on the same line
+and subsequent lines following the two colons.
+● Cannot be used to transfer control into or out of a routine.
+In Figure 2.1.5, weld:: denotes the section of the program in which a part is welded. When the
+statement GOTO weld is executed, program control is transferred to the weld section.
+weld:: --label
+    . --additional program statements
+    .
+    .
+GOTO weld
+Figure 2.1.5 Using Labels
+2.1.6 Predefined Identifiers
+Predefined identifiers within the KAREL language have a predefined meaning. These can be constants,
+types, variables, or built-in routine names. Table 2.1.6 (a) and Table 2.1.6 (b) list the predefined
+identifiers along with their corresponding values. Either the identifier or the value can be specified in the
+program statement. For example, $MOTYPE = 7 is the same as $MOTYPE = LINEAR. However, the
+predefined identifier MININT is an exception to this rule. This identifier must always be used in place of
+its value, -2147483648. The value or number itself can not be used.
+Table 2.1.6 (a) Predefined Identifier and Value Summary
+Predefined Identifier       Type                                                Value
+TRUE                        BOOLEAN                                             ON
+FALSE                       BOOLEAN                                             OFF
+ON                          BOOLEAN                                             ON
+OFF                         BOOLEAN                                             OFF
+MAXINT                      INTEGER                                             +2147483647 -2147483648
+MININT                      INTEGER                                             +2147483647 -2147483648
+RSWORLD                     Orientation Type: $ORIENT_TYPE                      1 2 3
+AESWORLD                    Orientation Type: $ORIENT_TYPE                      1 2 3
+WRISTJOINT                  Orientation Type: $ORIENT_TYPE                      1 2 3
+JOINT                       Motion Type: $MOTYPE                                6 7 8
+LINEAR (or STRAIGHT)        Motion Type: $MOTYPE                                6 7 8
+CIRCULAR                    Motion Type: $MOTYPE                                6 7 8
+FINE                        Termination Types: $TERMTYPE and $SEGTERMTYPE       1 2 3 4 5
+COARSE                      Termination Types: $TERMTYPE and $SEGTERMTYPE       1 2 3 4 5
+NOSETTLE                    Termination Types: $TERMTYPE and $SEGTERMTYPE       1 2 3 4 5
+NODECEL                     Termination Types: $TERMTYPE and $SEGTERMTYPE       1 2 3 4 5
+VARDECEL                    Termination Types: $TERMTYPE and $SEGTERMTYPE       1 2 3 4 5
+
+Table 2.1.6 (b) Port and File Predefined Identifier Summary
+Predefined Identifier                           Type
+DIN (Digital input)                             Boolean port array
+DOUT (Digital output)                           Boolean port array
+GIN (Group input)                               Integer port array
+GOUT (Group output)                             Integer port array
+AIN (Analog input)                              Integer port array
+AOUT (Analog output)                            Integer port array
+TPIN (Teach pendant input)                      Boolean port array
+TPOUT (Teach pendant output)                    Boolean port array
+RDI (Robot digital input)                       Boolean port array
+RDO (Robot digital output)                      Boolean port array
+OPIN (Operator panel input)                     Boolean port array
+OPOUT (Operator panel output)                   Boolean port array
+WDI (Weld input)                                Boolean port array
+WDOUT (Weld output)                             Boolean port array
+UIN (User operator panel input)                 Boolean port array
+UOUT (User operator panel output)               Boolean port array
+LDI (Laser digital input)                       Boolean port array
+LDO (Laser digital output)                      Boolean port array
+FLG (Flag)                                      Boolean port array
+MRK (Marker)                                    Boolean port array
+LAI (Laser analog input)                        Integer port array
+LAO (Laser analog output)                       Integer port array
+TPDISPLAY (Teach pendant KAREL display)*        File
+TPERROR (Teach pendant message line)            File
+TPPROMPT (Teach pendant function key line)*     File
+TPFUNC (Teach pendant function key line)*       File
+TPSTATUS (Teach pendant status line)*           File
+INPUT (CRT/KB KAREL keyboard)*                  File
+OUTPUT (CRT/KB KAREL screen)*                   File
+CRTERROR (CRT/KB message line)                  File
+CRTFUNC (CRT function key line)*                File
+CRTSTATUS (CRT status line)*                    File
+CRTPROMPT (CRT prompt line)*                    File
+VIS_MONITOR (Vision Monitor Screen)             File
+
+*Input and output occurs on the USER menu of the teach pendant or CRT/KB.
+
+2.1.7 System Variables
+System variables are variables that are declared as part of the KAREL system software. They have
+permanently defined variable names, that begin with a dollar sign ($). Many are robot specific, meaning
+their values depend on the type of robot that is attached to the system.
+Some system variables are not accessible to KAREL programs. Access rights govern whether or not a
+KAREL program can read from or write to system variables.
+
+2.1.8 Comments
+A comment is marked by a pair of consecutive hyphens (--). On a program line, anything to the right of
+these hyphens is treated as a comment.
+Comments can be inserted on lines by themselves or at the ends of lines containing any program
+statement. They are ignored by the translator and have absolutely no effect on a running program.
+
+2.2 TRANSLATOR DIRECTIVES
+Translator directives provide a mechanism for directing the translation of a KAREL program. Translator
+directives are special statements used within a KAREL program to
+● Include other files into a program at translation time
+● Specify program and task attributes
+All directives except %INCLUDE must be after the program statement but before any other statements. 
+Table 2.2 lists and briefly describes each translator directive. Refer to Appendix C, KCL COMMAND
+ALPHABETICAL DESCRIPTION for a complete description of each translator directive.
+Table 2.2 Translator Directives
+Directive               Description
+%ALPHABETIZE            Specifies that variables will be created in alphabetical order when p-code is loaded.
+%CMOSVARS               Specifies the default storage for KAREL variables is CMOS RAM.
+%CMOS2SHADOW            Instructs the translator to put all CMOS variables in SHADOW memory.
+%COMMENT                Specifies a comment of up to 16 characters. During load time, the comment is stored as a program attribute and can be displayed on the SELECT screen of the teach pendant or CRT/KB.
+%CRTDEVICE              Specifies that the CRT/KB user window will be the default in the READ and WRITE statements instead of the TPDISPLAY window.
+%DEFGROUP = n           Specifies the default motion group to be used by the translator.
+%DELAY                  Specifies the amount of time the program will be delayed out of every 250 milliseconds.
+%ENVIRONMENT filename   Used by the off-line translator to specify that a particular environment file should be loaded.
+%INCLUDE filename       Specifies files to insert into a program at translation time.
+%LOCKGROUP =n,n         Specifies the motion group(s) locked by this task.
+%NOABORT = option       Specifies a set of conditions which will be prevented from aborting the program.
+%NOBUSYLAMP             Specifies that the busy lamp will be OFF during execution.
+%NOLOCKGROUP            Specifies that no motion groups will be locked by this task.
+%NOPAUSE = option       Specifies a set of conditions which will be prevented from pausing the program.
+%NOPAUSESHFT            Specifies that the task is not paused if the teach pendant shift key is released.
+%PRIORITY = n           Specifies the task priority.
+%SHADOWVARS             Specifies that all variables by default are created in SHADOW.
+%STACKSIZE = n          Specifies the stack size in long words.
+%TIMESLICE = n          Supports round-robin type time slicing for tasks with the same priority.
+%TPMOTION               Specifies that task motion is enabled only when the teach pendant is enabled.
+%UNINITVARS             Specifies that all variables are by default uninitialized.
+Figure 2.2 (a) illustrates the %INCLUDE directive. Figure 2.2 (b) shows the included file.
+PROGRAM mover
+-- This program, called mover, picks up 10 objects
+-- from an original position and puts them down
+-- at a destination position.
+%INCLUDE mover_decs
+-- Uses %INCLUDE directive to include the file
+-- called mover_decs containing declarations
+BEGIN
+ OPEN HAND gripper
+-- Loop to move total number of objects
+ FOR count = 1 TO num_of_parts DO
+ -- Put position in Position Register 1
+ SET_POS_REG(1,original,status)
+ -- Call TP program to move to Position Register
+ move_to_pr 
+ CLOSE HAND gripper
+ SET_POS_REG(1,destination,status)
+ move_to_pr 
+ OPEN HAND gripper
+ ENDFOR -- End of loop
+END mover
+The TP program move_to_pr is a one line program
+to do the move:
+ 1:J PR[1] 100% FINE 
+Figure 2.2 (a) %INCLUDE Directive in a KAREL Program
+-- Declarations for program mover in file mover_decs
+VAR
+ original : XYZWPR --POSITION of objects
+ destination : XYZWPR --Destination of objects
+ count : INTEGER --Number of objects moved
+CONST
+ gripper = 1 -- Hand number 1
+ num_of_parts = 10 -- Number of objects to move
+Figure 2.2 (b) Include File mover_decs for a KAREL Program
+2.3 DATA TYPES
+Three forms of data types are provided by KAREL to define data items in a program:
+● Simple type data items
+– Can be assigned constants or variables in a KAREL program
+– Can be assigned actual (literal) values in a KAREL program
+– Can assume only single values
+● Structured type data items
+– Are defined as data items that permit or require more than a single value
+– Are composites of simple data and structured data
+● User-defined type data items
+– Are defined in terms of existing data types including other user-defined types
+– Can be defined as structures consisting of several KAREL variable data types
+– Cannot include itself
+Table 2.3 lists the simple and structured data types available in KAREL. User-defined data types are
+described in Section 2.4, USER-DEFINED DATA TYPES AND STRUCTURES .
+Table 2.3 Simple and Structured Data Types
+Simple:
+BOOLEAN
+FILE
+INTEGER
+REAL
+STRING
+
+Structured:
+ARRAY OF BYTE 
+JOINTPOS8
+CAM_SETUP 
+JOINTPOS9
+CONFIG 
+MODEL
+JOINTPOS 
+PATH
+JOINTPOS1 
+POSITION
+JOINTPOS2 
+QUEUE_TYPE
+JOINTPOS3 
+ARRAY OF SHORT
+JOINTPOS4 
+VECTOR
+JOINTPOS5 
+VIS_PROCESS
+JOINTPOS6 
+XYZWPR
+JOINTPOS7 
+XYZWPREXT
+See Also: Appendix A, KAREL LANGUAGE ALPHABETICAL DESCRIPTION for a detailed
+description of each data type.
+
+2.4.1 User-Defined Data Types
+User-defined data types are data types you define in terms of existing data types. With user-defined data
+types, you
+● Include their declarations in the TYPE sections of a KAREL program.
+● Define a KAREL name to represent a new data type, described in terms of other data types.
+2 LANGUAGE ELEMENTS MARRC75KR07091E Rev M
+- 20 -
+● Can use predefined data types required for specific applications.
+User-defined data types can be defined as structures, consisting of several KAREL variable data types.
+The continuation character, &, can be used to continue a declaration on a new line.
+Figure 2.4.1 shows an example of user-defined data type usage and continuation character usage.
+CONST
+ n_pages = 20
+ n_lines = 40
+ std_str_lng = 8
+TYPE
+ std_string_t = STRING [std_str_lng]
+ std_table_t = ARRAY [n_pages]& --continuation character
+ OF ARRAY [n_lines] OF std_string_t
+ path_hdr_t FROM main_prog = STRUCTURE --user defined data type
+ ph_uframe: POSITION
+ ph_utool: POSITION
+ ENDSTRUCTURE
+ node_data_t FROM main_prog = STRUCTURE
+ gun_on: BOOLEAN
+ air_flow: INTEGER
+ ENDSTRUCTURE
+std_path_t FROM main_prog =
+ PATH PATHDATA = path_hdr_t NODEDATA = node_data_t
+VAR
+ msg_table_1: std_table_t
+ msg_table_2: std_table_t
+ temp_string: std_string_t
+ seam_1_path: std_path_t
+Figure 2.4.1 User-Defined Data Type Example
+Usage
+User-defined type data can be
+● Assigned to other variables of the same type
+● Passed as a parameter
+● Returned as a function
+Assignment between variables of different user-defined data types, even if identically declared, is not
+permitted. In addition, the system provides the ability to load and save variables of user-defined data
+types, checking consistency during the load with the current declaration of the data type.
+Restrictions
+A user-defined data type cannot
+● Include itself
+● Include any type that includes it, either directly or indirectly
+● Be declared within a routine
+A structure is used to store a collection of information that is generally used together. User-defined data
+structures are data structures in which you define a new data type as a structure consisting of several
+KAREL variable data types.
+When a program containing variables of user-defined data types is loaded, the definitions of these types
+are checked against a previously created definition. If a previously created definition does not exist, a new
+one is created.
+With user-defined data structures, you
+● Define a data type as a structure consisting of a list of component fields, each of which can be a
+standard data type or another, previously defined, user data type. See Figure 2.4.2 (a).
+new_type_name = STRUCTURE
+ field_name_1: type_name_1
+ field_name_2: type_name_2
+ ..
+ENDSTRUCTURE
+Figure 2.4.2 (a) Defining a Data Type as a User-Defined Structure
+● Access elements of a data type defined as a structure in a KAREL program. The continuation
+character, &, can be used to continue access of the structure elements. See Figure 2.4.2 (b).
+var_name = new_type_name.field_nam_1
+new_type_name.field_name_2 = expression
+outer_struct_name.inner_struct_name&
+ .field_name = expression
+Figure 2.4.2 (b) Accessing Elements of a User-Defined Structure in a KAREL Program
+● Access elements of a data type defined as a structure from the CRT/KB and at the teach pendant.
+● Define a range of executable statements in which fields of a STRUCTURE type variable can be
+accessed without repeating the name of the variable. See Figure 2.4.2 (c).
+USING struct_var, struct_var2 DO
+ statements
+ ..
+ENDUSING
+Figure 2.4.2 (c) Defining a Range of Executable Statements
+In the above example, struct_var and struct_var2 are the names of structure type variables.
+NOTE
+If the same name is both a field name and a variable name, the field name is assumed. If
+the same field name appears in more than one variable, the right-most variable in the
+USING statement is used.
+Restrictions
+User-defined data structures have the following restrictions:
+● The following data types are not valid as part of a data structure:
+– STRUCTURE definitions; types that are declared structures are permitted. See Figure 2.4.2 (d).
+The following is valid:
+ TYPE
+ sub_struct = STRUCTURE
+ subs_field_1: INTEGER
+ subs_field_2: BOOLEAN
+ ENDSTRUCTURE
+ big_struct = STRUCTURE
+ bigs_field_1: INTEGER
+ bigs_field_2: sub_struct
+ ENDSTRUCTURE
+The following is not valid:
+ big_struct = STRUCTURE
+ bigs_field_1: INTEGER
+ bigs_field_2: STRUCTURE
+ subs_field_1: INTEGER
+ subs_field_2: BOOLEAN
+ ENDSTRUCTURE
+ENDSTRUCTURE
+Figure 2.4.2 (d) Valid STRUCTURE Definitions
+– PATH types
+– FILE types
+– VISION types
+– Variable length arrays
+– The data structure itself, or any type that includes it, either directly or indirectly
+– Any structure not previously defined.
+● A variable can not be defined as a structure, but can be defined as a data type previously defined as a
+structure. See Figure 2.4.2 (e).
+The following is valid:
+ TYPE
+ struct_t = STRUCTURE
+ st_1: BOOLEAN
+ st_2: REAL
+ ENDSTRUCTURE
+ VAR
+ var_name: struct_t
+The following is not valid:
+ VAR
+ var_name: STRUCTURE
+ vn_1: BOOLEAN
+ vn_2: REAL
+ ENDSTRUCTURE
+Figure 2.4.2 (e) Defining a Variable as a Type Previously Defined as a Structure

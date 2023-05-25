@@ -1,0 +1,110 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Fanuc KAREL",
+    "scopeName": "source.karel",
+    "patterns": [
+      {
+        "include": "#comments"
+      },
+      {
+        "include": "#directives"
+      },
+      {
+        "include": "#keywords"
+      },
+      {
+        "include": "#types"
+      },
+      {
+        "include": "#operators"
+      },
+      {
+        "include": "#constants"
+      },
+      {
+        "include": "#variables"
+      },
+      {
+        "include": "#labels"
+      }
+    ],
+    "repository": {
+      "comments": {
+        "patterns": [
+          {
+            "name": "comment.line.karel",
+            "match": "--.*$"
+          }
+        ]
+      },
+      "directives": {
+        "patterns": [
+          {
+            "name": "keyword.directive.karel",
+            "match": "%\\w+"
+          }
+        ]
+      },
+      "keywords": {
+        "patterns": [
+          {
+            "name": "keyword.control.karel",
+            "match": "\\b(PROGRAM|BEGIN|END|CONST|TYPE|VAR|ROUTINE)\\b"
+          },
+          {
+            "name": "keyword.reserved.karel",
+            "match": "\\b(ABORT|GET_VAR|STOP|ABOUT|GO|STRING|ABS|DISABLE|OR|TIMER|AND|DISCONNECT|IF|THEN|ELSE|SELECT|WHILE|REPEAT|WITH|CASE|ENDWHILE|ENDFOR|ENDSELECT|ENDIF|RETURN|VAR|CONST|TYPE|FROM)\\b"
+          }
+        ]
+      },
+      "types": {
+        "patterns": [
+          {
+            "name": "keyword.type.karel",
+            "match": "\\b(BOOLEAN|FILE|INTEGER|REAL|STRING|ARRAY OF BYTE|JOINTPOS8|CAM_SETUP|JOINTPOS9|CONFIG|MODEL|JOINTPOS|PATH|JOINTPOS1|POSITION|JOINTPOS2|QUEUE_TYPE|JOINTPOS3|ARRAY OF SHORT|JOINTPOS4|VECTOR|JOINTPOS5|VIS_PROCESS|JOINTPOS6|XYZWPR|JOINTPOS7|XYZWPREXT)\\b"
+          }
+        ]
+      },
+      "operators": {
+        "patterns": [
+          {
+            "name": "keyword.operator.karel",
+            "match": "\\b(\\+|-|\\*|/|DIV|MOD|<|<=|=|<>|>=|>|:|#|@|AND|OR|NOT)\\b"
+          }
+        ]
+      },
+      "constants": {
+        "patterns": [
+          {
+            "name": "constant.numeric.karel",
+            "match": "\\b(-?\\d+)\\b"
+          },
+          {
+            "name": "constant.identifier.karel",
+            "match": "\\b\\w+\\b"
+          }
+        ]
+      },
+      "variables": {
+        "patterns": [
+          {
+            "name": "variable.declaration.karel",
+            "match": "\\bVAR\\b"
+          },
+          {
+            "name": "variable.identifier.karel",
+            "match": "\\b\\w+(?=:)"
+          }
+        ]
+      },
+      "labels": {
+        "patterns": [
+          {
+            "name": "label.declaration.karel",
+            "match": "\\b\\w+(?=:)"
+          }
+        ]
+      }
+    }
+  }
+  

@@ -1,0 +1,6 @@
+[
+    { "name": "move", "parameters": [{"name": "steps", "type": "INTEGER"}] },
+    { "name": "turn", "parameters": [{"name": "direction", "type": "STRING"}] },
+    { "name": "pickup", "parameters": [{"name": "object", "type": "STRING"}] },
+    { "name": "function1", "parameters": [{"name": "parameter1", "type": "STRING"}, {"name": "parameter2", "type": "INTEGER"}] }
+]

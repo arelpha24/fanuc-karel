@@ -1,0 +1,41 @@
+{
+  "main": "./extension.js",
+    "activationEvents": [
+        "onLanguage:karel"
+    ],
+  "name": "fanuc-karel",
+  "displayName": "FANUC Karel",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "karel",
+        "aliases": [
+          "Karel",
+          "karel"
+        ],
+        "extensions": [
+          ".kl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "karel",
+        "scopeName": "source.karel",
+        "path": "./syntaxes/karel.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode": "^1.1.37"
+  }
+}
