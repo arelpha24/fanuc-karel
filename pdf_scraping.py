@@ -26,11 +26,15 @@ for line in lines:
         # Substring the enumeration tag and "Built-In Procedure"
         function_name = re.sub(r'^A\.\d+\.\d+ ', '', line)
         if "Built-In Procedure" in line:
-            function_name = re.sub(r' Built-In Procedure$', '', function_name)
+            function_name = re.sub(r' Built-In Procedure$', '', function_name).replace(' iRVision', '')
             functions.append({"name": function_name, "parameters": [], "syntax":""})
             last_function_name = function_name
         elif "Built-In Function" in line:
-            function_name = re.sub(r' Built-In Function$', '', function_name)
+            function_name = re.sub(r' Built-In Function$', '', function_name).replace(' iRVision', '')
+            functions.append({"name": function_name, "parameters": [], "syntax":""})
+            last_function_name = function_name
+        elif "Built-In Routine" in line:
+            function_name = re.sub(r' Built-In Routine$', '', function_name).replace(' iRVision', '')
             functions.append({"name": function_name, "parameters": [], "syntax":""})
             last_function_name = function_name
         else:
@@ -45,28 +49,31 @@ for line in lines:
                 for func in functions:
                     if func["name"] == last_function_name:
                         func["syntax"] = syntax
-            if "[in]" in line or "[out]" in line or "[in,out]" in line:
-                parameter = re.match(parameter_pattern, line)
-                if parameter:
-                    for func in functions:
-                        if func["name"] == last_function_name:
-                            func["parameters"].append(
-                                {
-                                    "name": parameter.group(2),
-                                    "parameter_type": parameter.group(1),
-                                    "data_type": parameter.group(3)
-                                }
-                            )
+
+            if re.match(r'^\[(in|out|in,out)\]\s*\w+\s*:\s*.+$', line):
+                parameter_parts = re.split(r'\s*:\s*', line, maxsplit=1)
+                parameter = parameter_parts[0].strip()
+                parameter_type = re.findall(r'\[(.*?)\]', parameter)[0]
+                parameter_name = re.findall(r'\]\s*(\w+)', parameter)[0]
+                data_type = parameter_parts[1].strip()
+
+                func["parameters"].append({
+                    "name": parameter_name,
+                    "parameter_type": parameter_type,
+                    "data_type": data_type
+                })
                             
-                            
+                           
 for function in functions:
     syntax_exported = function['name'] + '(' +','.join(parameter["name"] for parameter in function["parameters"]) + ')'
     syntax_from_manual = function['syntax'].replace(" ", "")
-    syntax_from_manual = syntax_from_manual.replace(chr(32), "")
-    syntax_from_manual = syntax_from_manual.replace("<,group_no>", ",group_no")
+    syntax_from_manual = syntax_from_manual.replace(chr(32), "").replace("<", "").replace(">", "")
     if syntax_exported != syntax_from_manual:
-        print("Syntax error detected, syntax from manual: " + syntax_from_manual + ", syntax exported: " + syntax_exported)
-        
+        print("Syntax error detected, syntax from manual:" )
+        print(syntax_from_manual, 'syntax_from_manual')
+        print(syntax_exported, 'syntax_exported')
+        print()
+
     
                             
 # Write to JSON file
